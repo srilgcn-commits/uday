@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANJANEYA CABLE NET | Ultra Fast Fiber Broadband & HD Digital Cable TV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0B409C',
+                            darkblue: '#031B4E',
+                            accent: '#00D26A',
+                            orange: '#FF6B00',
+                            gold: '#FFB800',
+                            light: '#F3F6FC',
+                            cardBg: '#102A6B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-hero {
+            background: radial-gradient(circle at top right, #102A6B 0%, #031B4E 60%, #020D28 100%);
+        }
+        .gradient-orange-gold {
+            background: linear-gradient(135deg, #FF6B00 0%, #FFB800 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .carousel-item {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT & UTILITY BAR -->
+    <div class="bg-brand-darkblue text-white text-xs md:text-sm py-2 px-4 border-b border-blue-900/50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center text-slate-200">
+                    <i class="fa-solid fa-headset text-brand-gold mr-2"></i> Helpline: 
+                    <a href="tel:9100876709" class="font-bold text-white ml-1 hover:text-brand-gold transition">+91 91008 76709</a>
+                </span>
+                <span class="hidden md:inline-flex items-center text-slate-300">
+                    <i class="fa-solid fa-satellite-dish text-brand-accent mr-2"></i> High-Speed Optical Fiber Across Town & Rural Zones
+                </span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <!-- Language Switcher Toggle -->
+                <button id="langToggle" onclick="toggleLanguage()" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-3 py-1 rounded-full text-xs font-semibold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-language text-brand-gold"></i> <span id="langText">తెలుగు</span>
+                </button>
+                <a href="#quick-pay" class="hover:text-brand-gold transition text-xs font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-bolt text-brand-orange"></i> Instant Pay
+                </a>
+                <a href="#support" class="hover:text-brand-gold transition text-xs font-semibold hidden sm:inline-flex items-center gap-1">
+                    <i class="fa-solid fa-ticket text-brand-gold"></i> Register Complaint
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-blue via-brand-orange to-brand-gold flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-orange-500/20 group-hover:scale-105 transition transform">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <div>
+                        <div class="font-heading text-xl md:text-2xl font-black tracking-tight text-brand-darkblue leading-none">
+                            ANJANEYA <span class="text-brand-orange">CABLE NET</span>
+                        </div>
+                        <p class="text-[10px] font-bold text-slate-500 tracking-widest uppercase mt-0.5">Fiber Broadband & Digital TV</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-bold text-slate-700">
+                    <a href="#home" class="text-brand-blue hover:text-brand-orange transition">Home</a>
+                    <a href="#broadband" class="hover:text-brand-blue transition">Broadband</a>
+                    <a href="#cable-tv" class="hover:text-brand-blue transition">Digital Cable TV</a>
+                    <a href="#ott-combos" class="hover:text-brand-blue transition">OTT Bundles</a>
+                    <a href="#plans" class="hover:text-brand-blue transition">Packs & Pricing</a>
+                    <a href="#support" class="hover:text-brand-blue transition">Support</a>
+                </nav>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="openModal('quickPayModal')" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-extrabold text-xs uppercase tracking-wider text-white bg-brand-blue hover:bg-brand-darkblue transition shadow-md">
+                        <i class="fa-solid fa-receipt mr-1.5 text-brand-gold"></i> Pay Bill
+                    </button>
+                    <button onclick="openModal('connectionModal')" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-extrabold text-xs uppercase tracking-wider text-white gradient-orange-gold hover:opacity-90 shadow-lg shadow-orange-500/25 transition">
+                        <i class="fa-solid fa-plus-circle mr-1.5"></i> New Connection
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-brand-blue focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="#home" class="block py-2 text-brand-blue font-bold border-b border-slate-100" onclick="toggleMobileMenu()">Home</a>
+            <a href="#broadband" class="block py-2 text-slate-700 hover:text-brand-blue font-bold border-b border-slate-100" onclick="toggleMobileMenu()">Broadband Plans</a>
+            <a href="#cable-tv" class="block py-2 text-slate-700 hover:text-brand-blue font-bold border-b border-slate-100" onclick="toggleMobileMenu()">Digital Cable TV</a>
+            <a href="#ott-combos" class="block py-2 text-slate-700 hover:text-brand-blue font-bold border-b border-slate-100" onclick="toggleMobileMenu()">OTT Bundles</a>
+            <a href="#plans" class="block py-2 text-slate-700 hover:text-brand-blue font-bold border-b border-slate-100" onclick="toggleMobileMenu()">Packs & Pricing</a>
+            <a href="#support" class="block py-2 text-slate-700 hover:text-brand-blue font-bold border-b border-slate-100" onclick="toggleMobileMenu()">Support & Complaints</a>
+            <div class="pt-2 grid grid-cols-2 gap-2">
+                <button onclick="openModal('quickPayModal'); toggleMobileMenu();" class="w-full py-3 rounded-xl font-bold text-xs uppercase bg-brand-blue text-white">
+                    <i class="fa-solid fa-receipt mr-1"></i> Pay Bill
+                </button>
+                <button onclick="openModal('connectionModal'); toggleMobileMenu();" class="w-full py-3 rounded-xl font-bold text-xs uppercase gradient-orange-gold text-white">
+                    <i class="fa-solid fa-plus-circle mr-1"></i> New Connection
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 2: HERO BANNER CAROUSEL -->
+    <section id="home" class="relative gradient-hero text-white overflow-hidden py-16 lg:py-24">
+        <!-- Abstract Glowing Background Orbs -->
+        <div class="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-brand-blue/30 blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-20 w-96 h-96 rounded-full bg-brand-orange/20 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div id="heroCarousel" class="relative">
+                
+                <!-- Slide 1: Broadband Banner -->
+                <div class="carousel-item active">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-brand-gold font-bold text-xs md:text-sm uppercase tracking-wider">
+                                <i class="fa-solid fa-gauge-high text-brand-orange"></i> Lightning High-Speed Fiber
+                            </span>
+                            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
+                                <span class="lang-en">Ultra-Fast Fiber Internet Up to <span class="text-brand-gold">500 Mbps</span></span>
+                                <span class="lang-te hidden">అత్యంత వేగవంతమైన ఫైబర్ ఇంటర్నెట్ <span class="text-brand-gold">500 Mbps</span> వరకు</span>
+                            </h1>
+                            <p class="text-slate-300 text-base md:text-lg max-w-xl leading-relaxed">
+                                Experience uninterrupted high-speed browsing, zero buffering 4K UHD streaming, and ultra-low latency online gaming powered by <strong class="text-white">ANJANEYA CABLE NET</strong> fiber setup.
+                            </p>
+                            <div class="flex flex-wrap gap-4 pt-2">
+                                <button onclick="openModal('connectionModal')" class="px-8 py-4 rounded-xl font-extrabold text-slate-900 gradient-orange-gold hover:opacity-95 transition shadow-xl shadow-orange-500/25 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <span>Book New Connection</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                                <a href="#plans" class="px-8 py-4 rounded-xl font-extrabold glass-panel text-white hover:bg-white/15 transition text-sm uppercase tracking-wider">
+                                    Explore All Plans
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Highlight Card -->
+                        <div class="relative flex justify-center">
+                            <div class="relative w-full max-w-md p-8 rounded-3xl glass-panel border border-white/20 shadow-2xl">
+                                <div class="absolute -top-4 -right-4 bg-brand-orange text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+                                    Best Value
+                                </div>
+                                <div class="text-center space-y-4">
+                                    <div class="w-20 h-20 mx-auto rounded-2xl bg-brand-orange/20 border-2 border-brand-orange flex items-center justify-center text-brand-gold text-3xl">
+                                        <i class="fa-solid fa-wifi"></i>
+                                    </div>
+                                    <h3 class="font-heading text-2xl font-black text-white">ANJANEYA Fiber 100</h3>
+                                    <div class="text-4xl font-black text-white">₹599<span class="text-sm font-normal text-slate-300">/mo + GST</span></div>
+                                    <ul class="text-left space-y-3 text-sm text-slate-200 py-4 border-t border-b border-white/10">
+                                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3"></i> 100 Mbps Unlimited Upload/Download</li>
+                                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3"></i> Free Dual-Band Wi-Fi Router</li>
+                                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3"></i> Zero Installation Charge on Annual Plan</li>
+                                        <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3"></i> 24x7 Priority Local Support</li>
+                                    </ul>
+                                    <button onclick="selectPlanQuick('Broadband Fiber 100 Mbps')" class="w-full py-3 bg-brand-orange hover:bg-orange-600 text-white font-extrabold rounded-xl transition text-xs uppercase tracking-wider">
+                                        Get Connection Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Digital Cable TV Banner -->
+                <div class="carousel-item">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-brand-gold font-bold text-xs md:text-sm uppercase tracking-wider">
+                                <i class="fa-solid fa-tv text-brand-gold"></i> Premium Digital Television
+                            </span>
+                            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
+                                300+ Digital Channels & <span class="text-brand-orange">Dolby HD Picture</span>
+                            </h1>
+                            <p class="text-slate-300 text-base md:text-lg max-w-xl leading-relaxed">
+                                Watch all local Telugu channels, regional news, sports, movies, and infotainment with crystal clear audio and zero interruption via ANJANEYA Digital Set-Top Box.
+                            </p>
+                            <div class="flex flex-wrap gap-4 pt-2">
+                                <button onclick="openModal('connectionModal')" class="px-8 py-4 rounded-xl font-extrabold text-slate-900 gradient-orange-gold hover:opacity-95 transition shadow-xl shadow-orange-500/25 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                    <span>Get HD Set-Top Box</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                                <a href="#plans" class="px-8 py-4 rounded-xl font-extrabold glass-panel text-white hover:bg-white/15 transition text-sm uppercase tracking-wider">
+                                    View Channel Packs
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="relative flex justify-center">
+                            <div class="relative w-full max-w-md p-8 rounded-3xl glass-panel border border-white/20 shadow-2xl text-center space-y-4">
+                                <div class="w-20 h-20 mx-auto rounded-2xl bg-blue-500/20 border-2 border-brand-blue flex items-center justify-center text-brand-gold text-3xl">
+                                    <i class="fa-solid fa-tv"></i>
+                                </div>
+                                <h3 class="font-heading text-2xl font-black text-white">Telugu Super HD Pack</h3>
+                                <div class="text-4xl font-black text-white">₹299<span class="text-sm font-normal text-slate-300">/month</span></div>
+                                <p class="text-xs text-slate-300">All Top Telugu Regional + Sports + Movies HD Channels</p>
+                                <div class="pt-2 grid grid-cols-3 gap-2 text-xs text-center font-bold">
+                                    <div class="p-2 bg-white/10 rounded-lg">ETV / Gemini</div>
+                                    <div class="p-2 bg-white/10 rounded-lg">Star Maa / Zee</div>
+                                    <div class="p-2 bg-white/10 rounded-lg">Star Sports HD</div>
+                                </div>
+                                <button onclick="selectPlanQuick('Digital Cable TV Telugu HD Pack')" class="w-full py-3 bg-brand-blue hover:bg-blue-800 text-white font-extrabold rounded-xl transition text-xs uppercase tracking-wider">
+                                    Subscribe Cable TV
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide Indicators -->
+                <div class="flex justify-center items-center space-x-3 mt-10">
+                    <button onclick="setSlide(0)" id="dot-0" class="w-3 h-3 rounded-full bg-white transition-all"></button>
+                    <button onclick="setSlide(1)" id="dot-1" class="w-3 h-3 rounded-full bg-white/30 transition-all"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: QUICK ACTIONS BAR (Quick Pay, Upgrade, Complaints) -->
+    <section id="quick-pay" class="relative z-20 -mt-8 mx-4 sm:mx-8 lg:mx-auto max-w-6xl">
+        <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 p-6 md:p-8">
+            <div class="grid md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                
+                <!-- Action 1: Quick Recharge -->
+                <div class="pr-0 md:pr-4 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-black text-brand-darkblue text-lg">Quick Bill Recharge</h3>
+                            <p class="text-xs text-slate-500">Pay for STB Cable TV or Fiber Broadband</p>
+                        </div>
+                    </div>
+                    <form onsubmit="handleQuickPayInline(event)" class="space-y-2 pt-2">
+                        <input type="text" id="quickPayInput" required placeholder="Enter STB Card No. / Username / Mobile" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-brand-orange outline-none">
+                        <button type="submit" class="w-full py-2.5 bg-brand-orange hover:bg-orange-600 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition shadow-md">
+                            Fetch & Pay Bill
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Action 2: Plan Upgrade -->
+                <div class="pt-6 md:pt-0 md:px-6 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-angles-up"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-black text-brand-darkblue text-lg">Speed & Pack Upgrade</h3>
+                            <p class="text-xs text-slate-500">Switch to higher Fiber speeds or HD packs</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed pt-1">
+                        Upgrade your existing connection instantly without physical technician visits. Experience up to 500 Mbps instantly.
+                    </p>
+                    <a href="#plans" class="inline-block w-full text-center py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs uppercase tracking-wider transition">
+                        Browse Upgrade Plans
+                    </a>
+                </div>
+
+                <!-- Action 3: Complaint / Support -->
+                <div class="pt-6 md:pt-0 md:pl-6 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-black text-brand-darkblue text-lg">Service Support</h3>
+                            <p class="text-xs text-slate-500">Fast Resolution by Local Technicians</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed pt-1">
+                        Having connection issues or signal drops? Register a complaint for quick doorstep technician visit.
+                    </p>
+                    <button onclick="openModal('complaintModal')" class="w-full py-2.5 border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-bold rounded-xl text-xs uppercase tracking-wider transition">
+                        Register Complaint Ticket
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: BROADBAND, CABLE TV & COMBO PLANS (TABBED INTERFACE) -->
+    <section id="plans" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-black uppercase tracking-widest text-brand-orange bg-orange-100 px-3 py-1 rounded-full">Transparent Pricing</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-black text-brand-darkblue mt-3">ANJANEYA Packs & Tariff</h2>
+                <p class="text-slate-600 text-sm mt-2">Choose high-speed internet, HD cable TV, or value-packed OTT combo bundles</p>
+
+                <!-- Filter Tabs -->
+                <div class="inline-flex p-1.5 bg-slate-200 rounded-2xl mt-8 border border-slate-300">
+                    <button id="tabBroadband" onclick="switchPlanTab('broadband')" class="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition bg-white text-brand-blue shadow">
+                        Fiber Broadband
+                    </button>
+                    <button id="tabCable" onclick="switchPlanTab('cable')" class="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition text-slate-600 hover:text-slate-900">
+                        Digital Cable TV
+                    </button>
+                    <button id="tabCombos" onclick="switchPlanTab('combos')" class="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition text-slate-600 hover:text-slate-900">
+                        OTT Combo Bundles
+                    </button>
+                </div>
+            </div>
+
+            <!-- BROADBAND PLANS GRID -->
+            <div id="gridBroadband" class="grid md:grid-cols-3 gap-8">
+                <!-- Broadband Plan 1 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:border-brand-blue transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-2">Starter Fiber</div>
+                        <h3 class="font-heading text-2xl font-black text-slate-900">50 Mbps Unlimited</h3>
+                        <div class="my-5">
+                            <span class="text-4xl font-black text-brand-darkblue">₹499</span>
+                            <span class="text-xs text-slate-500 font-semibold">/ Month + GST</span>
+                        </div>
+                        <ul class="space-y-3 text-xs font-semibold text-slate-600 mb-8 border-t border-slate-100 pt-5">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3 text-sm"></i> 50 Mbps Unlimited Speed</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3 text-sm"></i> Truly Unlimited Data</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3 text-sm"></i> Symmetric Upload & Download</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3 text-sm"></i> Dual-Band Wi-Fi Router Included</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectPlanQuick('Broadband Starter 50 Mbps')" class="w-full py-3.5 rounded-xl border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-extrabold text-xs uppercase tracking-wider transition">
+                        Select 50 Mbps
+                    </button>
+                </div>
+
+                <!-- Broadband Plan 2 (Popular) -->
+                <div class="bg-brand-darkblue text-white rounded-3xl p-8 border-2 border-brand-orange transition shadow-2xl relative flex flex-col justify-between scale-105">
+                    <span class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-brand-orange text-white text-[10px] uppercase font-black tracking-widest rounded-full shadow">
+                        Most Popular
+                    </span>
+                    <div>
+                        <div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">Family Streamer</div>
+                        <h3 class="font-heading text-2xl font-black text-white">150 Mbps Fiber</h3>
+                        <div class="my-5">
+                            <span class="text-4xl font-black text-white">₹799</span>
+                            <span class="text-xs text-slate-300 font-semibold">/ Month + GST</span>
+                        </div>
+                        <ul class="space-y-3 text-xs font-semibold text-slate-200 mb-8 border-t border-white/10 pt-5">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-3 text-sm"></i> 150 Mbps High-Speed Fiber</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-3 text-sm"></i> Unlimited High-Speed Data</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-3 text-sm"></i> Free Wi-Fi 6 Router Hardware</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-gold mr-3 text-sm"></i> Free Installation on 3 Month Pack</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectPlanQuick('Broadband Family 150 Mbps')" class="w-full py-3.5 rounded-xl gradient-orange-gold text-slate-900 font-black text-xs uppercase tracking-wider transition shadow-lg shadow-orange-500/25">
+                        Select 150 Mbps
+                    </button>
+                </div>
+
+                <!-- Broadband Plan 3 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:border-brand-blue transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-2">Ultra Gaming & 4K</div>
+                        <h3 class="font-heading text-2xl font-black text-slate-900">300 Mbps GigaSpeed</h3>
+                        <div class="my-5">
+                            <span class="text-4xl font-black text-brand-darkblue">₹1,199</span>
+                            <span class="text-xs text-slate-500 font-semibold">/ Month + GST</span>
+                        </div>
+                        <ul class="space-y-3 text-xs font-semibold text-slate-600 mb-8 border-t border-slate-100 pt-5">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3 text-sm"></i> 300 Mbps Ultra Fast Speed</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3 text-sm"></i> Ultra-Low Latency Gaming Ping</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3 text-sm"></i> Free High-Gain Mesh Wi-Fi</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-accent mr-3 text-sm"></i> Static IP Support Available</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectPlanQuick('Broadband Ultra 300 Mbps')" class="w-full py-3.5 rounded-xl border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-extrabold text-xs uppercase tracking-wider transition">
+                        Select 300 Mbps
+                    </button>
+                </div>
+            </div>
+
+            <!-- CABLE TV PLANS GRID (Hidden by default) -->
+            <div id="gridCable" class="hidden grid md:grid-cols-3 gap-8">
+                <!-- Cable Plan 1 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:border-brand-orange transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-brand-orange uppercase tracking-wider mb-2">Regional Value</div>
+                        <h3 class="font-heading text-2xl font-black text-slate-900">Telugu Standard SD</h3>
+                        <div class="my-5">
+                            <span class="text-4xl font-black text-brand-darkblue">₹220</span>
+                            <span class="text-xs text-slate-500 font-semibold">/ Month</span>
+                        </div>
+                        <ul class="space-y-3 text-xs font-semibold text-slate-600 mb-8 border-t border-slate-100 pt-5">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-orange mr-3 text-sm"></i> 250+ SD Digital Channels</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-orange mr-3 text-sm"></i> All Local Telugu News & Movies</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-orange mr-3 text-sm"></i> DD & Mandatory Public Channels</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectPlanQuick('Cable TV Telugu Standard SD')" class="w-full py-3.5 rounded-xl border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white font-extrabold text-xs uppercase tracking-wider transition">
+                        Choose Pack
+                    </button>
+                </div>
+
+                <!-- Cable Plan 2 -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-brand-orange transition shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-brand-orange uppercase tracking-wider mb-2">Family Special</div>
+                        <h3 class="font-heading text-2xl font-black text-slate-900">Telugu Premium HD</h3>
+                        <div class="my-5">
+                            <span class="text-4xl font-black text-brand-darkblue">₹350</span>
+                            <span class="text-xs text-slate-500 font-semibold">/ Month</span>
+                        </div>
+                        <ul class="space-y-3 text-xs font-semibold text-slate-600 mb-8 border-t border-slate-100 pt-5">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-orange mr-3 text-sm"></i> 350+ SD & HD Channels</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-orange mr-3 text-sm"></i> ETV HD, Star Maa HD, Gemini HD, Zee HD</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-orange mr-3 text-sm"></i> Star Sports HD & Ten Sports HD</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectPlanQuick('Cable TV Telugu Premium HD')" class="w-full py-3.5 rounded-xl bg-brand-orange hover:bg-orange-600 text-white font-extrabold text-xs uppercase tracking-wider transition shadow-md">
+                        Choose HD Pack
+                    </button>
+                </div>
+
+                <!-- Cable Plan 3 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:border-brand-orange transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-brand-orange uppercase tracking-wider mb-2">All India Deluxe</div>
+                        <h3 class="font-heading text-2xl font-black text-slate-900">Super Gold HD Pack</h3>
+                        <div class="my-5">
+                            <span class="text-4xl font-black text-brand-darkblue">₹480</span>
+                            <span class="text-xs text-slate-500 font-semibold">/ Month</span>
+                        </div>
+                        <ul class="space-y-3 text-xs font-semibold text-slate-600 mb-8 border-t border-slate-100 pt-5">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-orange mr-3 text-sm"></i> 450+ Channels (100+ True HD)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-orange mr-3 text-sm"></i> Telugu, Hindi, English & Kids Channels</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-orange mr-3 text-sm"></i> Dolby Surround 5.1 Sound Track</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectPlanQuick('Cable TV Super Gold HD')" class="w-full py-3.5 rounded-xl border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white font-extrabold text-xs uppercase tracking-wider transition">
+                        Choose Pack
+                    </button>
+                </div>
+            </div>
+
+            <!-- OTT COMBOS GRID (Hidden by default) -->
+            <div id="gridCombos" class="hidden grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Combo Plan 1 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:border-purple-600 transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2.5 py-1 bg-red-100 text-red-600 rounded-md font-black text-[10px] uppercase">Aha</span>
+                            <span class="px-2.5 py-1 bg-blue-100 text-blue-600 rounded-md font-black text-[10px] uppercase">Hotstar</span>
+                            <span class="px-2.5 py-1 bg-purple-100 text-purple-600 rounded-md font-black text-[10px] uppercase">Zee5</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-black text-slate-900">Fiber 150 Mbps + 6 OTT Apps</h3>
+                        <div class="my-4">
+                            <span class="text-4xl font-black text-brand-darkblue">₹899</span>
+                            <span class="text-xs text-slate-500 font-semibold">/ Month + GST</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-6">Enjoy unlimited 150 Mbps internet bundled with subscriptions to Aha Telugu, Disney+ Hotstar, Zee5, and SonyLIV.</p>
+                    </div>
+                    <button onclick="selectPlanQuick('OTT Combo 150 Mbps + 6 Apps')" class="w-full py-3.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-extrabold text-xs uppercase tracking-wider transition shadow-md">
+                        Subscribe OTT Combo
+                    </button>
+                </div>
+
+                <!-- Combo Plan 2 -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-purple-600 transition shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 mb-3">
+                            <span class="px-2.5 py-1 bg-red-100 text-red-600 rounded-md font-black text-[10px] uppercase">Aha</span>
+                            <span class="px-2.5 py-1 bg-blue-100 text-blue-600 rounded-md font-black text-[10px] uppercase">Hotstar</span>
+                            <span class="px-2.5 py-1 bg-purple-100 text-purple-600 rounded-md font-black text-[10px] uppercase">Zee5</span>
+                            <span class="px-2.5 py-1 bg-amber-100 text-amber-700 rounded-md font-black text-[10px] uppercase">+ 12 OTTs</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-black text-slate-900">Broadband + HD Cable + All OTTs</h3>
+                        <div class="my-4">
+                            <span class="text-4xl font-black text-brand-darkblue">₹1,299</span>
+                            <span class="text-xs text-slate-500 font-semibold">/ Month + GST</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-6">The ultimate home bundle: 200 Mbps Fiber + 350 HD Cable TV channels + 15 Premium OTT apps under 1 single monthly bill!</p>
+                    </div>
+                    <button onclick="selectPlanQuick('Ultimate Combo - Broadband + Cable + OTT')" class="w-full py-3.5 rounded-xl gradient-orange-gold text-slate-900 font-black text-xs uppercase tracking-wider transition shadow-md">
+                        Get Ultimate Bundle
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: CABLE TV & SET TOP BOX HIGHLIGHTS -->
+    <section id="cable-tv" class="py-20 bg-brand-darkblue text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs font-black uppercase tracking-widest text-brand-gold bg-white/10 px-3 py-1 rounded-full">Digital Entertainment</span>
+                    <h2 class="font-heading text-3xl md:text-5xl font-black leading-tight">
+                        Next-Gen Digital HD Set-Top Box Experience
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        ANJANEYA CABLE NET brings superior video decoding technology ensuring high color contrast, crisp audio, and instant channel switching with zero latency.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <i class="fa-solid fa-tv text-brand-gold text-2xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-white">300+ Digital Channels</h4>
+                            <p class="text-xs text-slate-400 mt-1">All local Telugu regional news, entertainment & sports</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <i class="fa-solid fa-volume-high text-brand-orange text-2xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-white">Dolby Digital Sound</h4>
+                            <p class="text-xs text-slate-400 mt-1">Theatre-like sound audio output support for smart home TVs</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <i class="fa-solid fa-newspaper text-brand-accent text-2xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-white">Local News Channel</h4>
+                            <p class="text-xs text-slate-400 mt-1">Dedicated 24/7 ANJANEYA local news & bulletin broadcasts</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <i class="fa-solid fa-microchip text-blue-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-white">Android Smart STB Option</h4>
+                            <p class="text-xs text-slate-400 mt-1">Convert any normal TV into a Smart TV easily</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Graphic Visual -->
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md p-8 rounded-3xl bg-slate-900 border border-white/15 shadow-2xl space-y-6 text-center">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-brand-orange/20 border-2 border-brand-orange flex items-center justify-center text-brand-gold text-4xl">
+                            <i class="fa-solid fa-satellite-dish"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-black text-white">Book ANJANEYA Digital STB</h3>
+                        <p class="text-xs text-slate-300">Upgrade your old analog cable line to crystal clear Digital HD today!</p>
+                        <button onclick="openModal('connectionModal')" class="w-full py-4 rounded-xl gradient-orange-gold text-slate-900 font-black text-xs uppercase tracking-wider shadow-lg">
+                            Request Setup Box Installation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CUSTOMER SUPPORT & CONTACT -->
+    <section id="support" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Contact Details -->
+                <div class="space-y-6">
+                    <span class="text-xs font-black uppercase tracking-widest text-brand-blue">Always At Your Service</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-black text-brand-darkblue">Contact ANJANEYA CABLE NET</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Need assistance with your broadband internet, cable STB recharge, or new connection inquiry? Reach out to our local support office.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-100 text-brand-blue flex items-center justify-center font-bold text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Head Office & Control Center</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">ANJANEYA CABLE NET Towers, Main Road, Near Bus Stand, AP/TS.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-orange-100 text-brand-orange flex items-center justify-center font-bold text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Customer Support Phone</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Contact: +91 91008 76709</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-xl shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">WhatsApp Support</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Instant Chat Support: +91 91008 76709</p>
+                                <a href="https://wa.me/919100876709" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 hover:underline mt-1">
+                                    <span>Chat on WhatsApp</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doorstep Request Form -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                    <h3 class="font-heading text-2xl font-black text-brand-darkblue mb-1">Send Service Request</h3>
+                    <p class="text-xs text-slate-500 mb-6">Our local operator will get in touch with you shortly.</p>
+
+                    <form onsubmit="handleInquirySubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Name *</label>
+                            <input type="text" required placeholder="Enter your full name" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-blue outline-none">
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Mobile Number *</label>
+                                <input type="tel" pattern="[0-9]{10}" required placeholder="10-digit Mobile No." class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-blue outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Service Type *</label>
+                                <select class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-blue outline-none bg-white">
+                                    <option>Fiber Broadband</option>
+                                    <option>Digital Cable TV</option>
+                                    <option>Broadband + Cable Combo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Address & Area *</label>
+                            <textarea rows="3" required placeholder="Door No, Street Name, Colony / Village" class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-brand-blue outline-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-brand-blue hover:bg-brand-darkblue text-white font-extrabold rounded-xl shadow-lg shadow-blue-500/20 transition text-xs uppercase tracking-wider">
+                            Submit Inquiry <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                    <div id="inquirySuccessMsg" class="hidden mt-4 p-3 bg-emerald-100 text-emerald-800 rounded-xl text-xs font-bold text-center">
+                        <i class="fa-solid fa-circle-check mr-1"></i> Request submitted! Our operator will call you within 30 minutes.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="col-span-2 md:col-span-1 space-y-4">
+                    <div class="flex items-center gap-2 text-white font-heading font-black text-xl">
+                        <i class="fa-solid fa-bolt-lightning text-brand-orange"></i>
+                        <span>ANJANEYA CABLE NET</span>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Premier local digital network operator providing high-speed optical fiber broadband and digital cable TV across regional centers.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-4">Services</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#broadband" class="hover:text-white transition">Fiber Internet</a></li>
+                        <li><a href="#cable-tv" class="hover:text-white transition">Digital Cable TV</a></li>
+                        <li><a href="#ott-combos" class="hover:text-white transition">OTT Subscriptions</a></li>
+                        <li><a href="#plans" class="hover:text-white transition">Packs & Tariff</a></li>
+                        <li><a href="#quick-pay" class="hover:text-white transition">Quick Pay & Recharge</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Legal & Regulatory -->
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-4">Compliance</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#" class="hover:text-white transition">TRAI Tariff Orders</a></li>
+                        <li><a href="#" class="hover:text-white transition">Consumer Charter</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition">Grievance Officer</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Support -->
+                <div>
+                    <h5 class="text-white font-bold text-sm mb-4">Customer Care</h5>
+                    <p class="text-xs text-slate-400 mb-2">Helpline: +91 91008 76709</p>
+                    <p class="text-xs text-slate-400 mb-4">Email: support@anjaneyacable.net</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-brand-blue transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-brand-orange transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://wa.me/919100876709" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-emerald-600 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
+                <p>© 2026 ANJANEYA CABLE NET. All Rights Reserved.</p>
+                <p class="mt-2 md:mt-0">High-Speed Broadband & Digital Cable Network Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: NEW CONNECTION REQUEST -->
+    <div id="connectionModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal('connectionModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-heading text-xl font-black text-brand-darkblue mb-1">Book New Connection</h3>
+            <p id="modalPlanTitle" class="text-xs font-bold text-brand-orange mb-4">ANJANEYA CABLE NET Connection Request</p>
+            
+            <form onsubmit="handleModalSubmit(event, 'connectionModal')" class="space-y-3">
+                <div>
+                    <label class="block text-[10px] font-extrabold uppercase text-slate-500 mb-1">Full Name</label>
+                    <input type="text" required placeholder="Enter your full name" class="w-full px-4 py-2.5 border rounded-xl text-xs outline-none focus:border-brand-blue">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-extrabold uppercase text-slate-500 mb-1">Mobile Number</label>
+                    <input type="tel" pattern="[0-9]{10}" required placeholder="10-digit Mobile No." class="w-full px-4 py-2.5 border rounded-xl text-xs outline-none focus:border-brand-blue">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-extrabold uppercase text-slate-500 mb-1">Area / Location</label>
+                    <input type="text" required placeholder="Town, Colony or Landmark" class="w-full px-4 py-2.5 border rounded-xl text-xs outline-none focus:border-brand-blue">
+                </div>
+                <button type="submit" class="w-full py-3 gradient-orange-gold text-slate-900 font-extrabold rounded-xl hover:opacity-95 transition text-xs uppercase tracking-wider mt-2">
+                    Submit New Connection Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: QUICK PAY / BILL RECHARGE -->
+    <div id="quickPayModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal('quickPayModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-heading text-xl font-black text-brand-darkblue mb-1">Quick Recharge & Pay Bill</h3>
+            <p class="text-xs text-slate-500 mb-4">ANJANEYA Cable STB / Fiber Broadband Payment</p>
+            
+            <form onsubmit="handleModalSubmit(event, 'quickPayModal')" class="space-y-3">
+                <div>
+                    <label class="block text-[10px] font-extrabold uppercase text-slate-500 mb-1">Account / STB No. / Mobile</label>
+                    <input type="text" required placeholder="e.g. STB12345 or 9876543210" class="w-full px-4 py-2.5 border rounded-xl text-xs outline-none focus:border-brand-blue">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-extrabold uppercase text-slate-500 mb-1">Select Amount (₹)</label>
+                    <select class="w-full px-4 py-2.5 border rounded-xl text-xs outline-none focus:border-brand-blue bg-white">
+                        <option>₹ 220 - Cable Telugu SD (1 Month)</option>
+                        <option>₹ 350 - Cable Telugu HD (1 Month)</option>
+                        <option>₹ 599 - Fiber 100 Mbps (1 Month)</option>
+                        <option>₹ 799 - Fiber 150 Mbps (1 Month)</option>
+                        <option>₹ 1,299 - Broadband + Cable Bundle</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full py-3 bg-brand-blue hover:bg-brand-darkblue text-white font-extrabold rounded-xl transition text-xs uppercase tracking-wider mt-2">
+                    Proceed To Payment Gateway
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: COMPLAINT TICKET -->
+    <div id="complaintModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal('complaintModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-heading text-xl font-black text-brand-darkblue mb-1">Register Complaint Ticket</h3>
+            <p class="text-xs text-slate-500 mb-4">Prompt local technician visit for signal or speed issues</p>
+            
+            <form onsubmit="handleModalSubmit(event, 'complaintModal')" class="space-y-3">
+                <div>
+                    <label class="block text-[10px] font-extrabold uppercase text-slate-500 mb-1">Account No. / Registered Mobile</label>
+                    <input type="text" required placeholder="Enter Account ID or Mobile No." class="w-full px-4 py-2.5 border rounded-xl text-xs outline-none focus:border-brand-blue">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-extrabold uppercase text-slate-500 mb-1">Issue Category</label>
+                    <select class="w-full px-4 py-2.5 border rounded-xl text-xs outline-none focus:border-brand-blue bg-white">
+                        <option>Broadband Low Speed / No Signal</option>
+                        <option>Cable STB Signal Loss / E52 Error</option>
+                        <option>Wire Cut / Physical Box Damage</option>
+                        <option>Billing / Recharge Inquiry</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-extrabold uppercase text-slate-500 mb-1">Describe Problem</label>
+                    <textarea rows="2" placeholder="Brief explanation of your issue..." class="w-full px-4 py-2.5 border rounded-xl text-xs outline-none focus:border-brand-blue"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-slate-800 hover:bg-slate-900 text-white font-extrabold rounded-xl transition text-xs uppercase tracking-wider mt-2">
+                    Submit Complaint Ticket
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Hero Carousel Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        
+        function setSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            document.getElementById(`dot-${currentSlide}`).classList.replace('bg-white', 'bg-white/30');
+            
+            currentSlide = index;
+            
+            slides[currentSlide].classList.add('active');
+            document.getElementById(`dot-${currentSlide}`).classList.replace('bg-white/30', 'bg-white');
+        }
+
+        setInterval(() => {
+            let next = (currentSlide + 1) % slides.length;
+            setSlide(next);
+        }, 6000);
+
+        // Mobile Nav Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Language Toggle
+        let isTelugu = false;
+        function toggleLanguage() {
+            isTelugu = !isTelugu;
+            document.getElementById('langText').innerText = isTelugu ? 'English' : 'తెలుగు';
+            
+            const enEls = document.querySelectorAll('.lang-en');
+            const teEls = document.querySelectorAll('.lang-te');
+
+            enEls.forEach(el => el.classList.toggle('hidden', isTelugu));
+            teEls.forEach(el => el.classList.toggle('hidden', !isTelugu));
+        }
+
+        // Plan Filter Tabs (Broadband, Cable, OTT Combos)
+        function switchPlanTab(type) {
+            const btnBb = document.getElementById('tabBroadband');
+            const btnCb = document.getElementById('tabCable');
+            const btnCo = document.getElementById('tabCombos');
+
+            const gridBb = document.getElementById('gridBroadband');
+            const gridCb = document.getElementById('gridCable');
+            const gridCo = document.getElementById('gridCombos');
+
+            const activeClass = "px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition bg-white text-brand-blue shadow";
+            const inactiveClass = "px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition text-slate-600 hover:text-slate-900";
+
+            btnBb.className = (type === 'broadband') ? activeClass : inactiveClass;
+            btnCb.className = (type === 'cable') ? activeClass : inactiveClass;
+            btnCo.className = (type === 'combos') ? activeClass : inactiveClass;
+
+            gridBb.classList.toggle('hidden', type !== 'broadband');
+            gridCb.classList.toggle('hidden', type !== 'cable');
+            gridCo.classList.toggle('hidden', type !== 'combos');
+        }
+
+        // Quick Pay Form Handling
+        function handleQuickPayInline(e) {
+            e.preventDefault();
+            const val = document.getElementById('quickPayInput').value;
+            alert(`Account verified for '${val}'. Redirecting to ANJANEYA CABLE NET secure payment gateway...`);
+        }
+
+        function selectPlanQuick(planName) {
+            document.getElementById('modalPlanTitle').innerText = "Selected: " + planName;
+            openModal('connectionModal');
+        }
+
+        // Generic Modal Open/Close Controls
+        function openModal(modalId) {
+            const m = document.getElementById(modalId);
+            if(m) {
+                m.classList.remove('hidden');
+                m.classList.add('flex');
+            }
+        }
+
+        function closeModal(modalId) {
+            const m = document.getElementById(modalId);
+            if(m) {
+                m.classList.add('hidden');
+                m.classList.remove('flex');
+            }
+        }
+
+        function handleModalSubmit(e, modalId) {
+            e.preventDefault();
+            if(modalId === 'connectionModal') {
+                alert("Thank you! Your new connection booking request has been registered with ANJANEYA CABLE NET.");
+            } else if(modalId === 'quickPayModal') {
+                alert("Redirecting to online payment gateway...");
+            } else if(modalId === 'complaintModal') {
+                alert("Complaint ticket registered successfully. Ticket ID: #ACN-" + Math.floor(100000 + Math.random() * 900000));
+            }
+            closeModal(modalId);
+        }
+
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            document.getElementById('inquirySuccessMsg').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
